@@ -15,7 +15,7 @@ def chat():
    data=request.get_json()
    if not data or "message" not in data:
         return jsonify({"error": "Missing 'message' field"}), 400  
-    prompts=data["json"]
+   prompts=data["json"]
     
    headers = {
         "Authorization": f"Bearer {API_KEY}",
