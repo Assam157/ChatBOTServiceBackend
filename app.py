@@ -8,6 +8,9 @@ CORS(app)
 API_KEY = "riXezrVqPczSVIcHnsqxlsFkiKFiiyQu"
 url = "https://api.deepinfra.com/v1/openai/chat/completions"
 @app.route("/chat",methods=["POST"])
+@app.route("/",methods=["POST"])
+def home():
+    print("FlaskAPI is running")
 def chat():
    data=request.json
    prompt=data.get("message","")
