@@ -9,13 +9,9 @@ API_KEY = "riXezrVqPczSVIcHnsqxlsFkiKFiiyQu"
 url = "https://api.deepinfra.com/v1/openai/chat/completions"
 @app.route("/chat",methods=["POST"])
 @app.route("/",methods=["GET"])
-def home():
-    print("FlaskAPI is running")
 def chat():
-   data=request.get_json()
-   if not data or "message" not in data:
-        return jsonify({"error": "Missing 'message' field"}), 400  
-   prompts=data["json"]
+   data=request.json
+   prompt=data.get("message","")
     
    headers = {
         "Authorization": f"Bearer {API_KEY}",
